@@ -4,10 +4,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
+const PostBoard = ({users}) => users.map(user => <li key={user.username}>{user.username}</li>);
+
+
+
 ReactDOM.render(
-    <div>
-        <h1>This is react.</h1>
-        <h2>So, how do I compile all the react stuff into a single index.js file?</h2>
-    </div>,
-    document.getElementById('react')
+    React.createElement(PostBoard, window.props),
+//        <PostBoard users={window.props} />,
+    window.react_mount
 );
