@@ -20,5 +20,5 @@
   window.props = {{props|json}}; // I removed the json filter, that would look like props|json // make sure to escape your props to prevent XSS! See here for the source for the json filter: https://gist.github.com/pirate/c18bfe4fd96008ffa0aef25001a2e88f
   window.react_mount = document.getElementById('react');
 </script>
-<script src='{% static "index.js" %}'></script>
+<script src='{% static "bundle.js" %}'></script>
 </html>
