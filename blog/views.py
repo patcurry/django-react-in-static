@@ -13,6 +13,7 @@ class Index(View):
 
     def get(self, request):
         # gets passed to react via window.props
+        # now, I need to set props to a JSON serialized version of an actual model
         props = {
             'users': [
                 {'username': 'alice'},
