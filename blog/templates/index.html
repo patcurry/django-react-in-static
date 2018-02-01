@@ -17,7 +17,7 @@
   <h1>Django.</h1>
 </body>
 <script>
-  window.props = {{props|json}}; // make sure to escape your props to prevent XSS! See here for the source for the json filter: https://gist.github.com/pirate/c18bfe4fd96008ffa0aef25001a2e88f
+  window.props = JSON.parse("{{props|escapejs}}"); // make sure to escape your props to prevent XSS! See here for the source for the json filter: https://gist.github.com/pirate/c18bfe4fd96008ffa0aef25001a2e88f => this thing wants props|json
   window.react_mount = document.getElementById('react');
 </script>
 <script src='/static/dist/{{component}}'></script>

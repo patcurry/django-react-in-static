@@ -1,6 +1,8 @@
+from django.core import serializers
 from django.views import View
 from django.shortcuts import render
 
+from blog.models import Post
 
 class Index(View):
     """
@@ -14,12 +16,15 @@ class Index(View):
     def get(self, request):
         # gets passed to react via window.props
         # now, I need to set props to a JSON serialized version of an actual model
-        props = {
-            'users': [
-                {'username': 'alice'},
-                {'username': 'bob'},
-            ]
-        }
+
+        props = serializers.serialize('json', Post.objects.all(), fields=('title', 'text'))
+
+#        props = {
+#            'users': [
+#                {'username': 'alice'},
+#                {'username': 'bob'},
+#            ]
+#        }
 
         context = {
             'title': self.title,
