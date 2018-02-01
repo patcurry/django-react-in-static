@@ -1,37 +1,15 @@
-'''
 from django.views import View
 from django.shortcuts import render
 
 
 class Index(View):
-    title = 'Home'
+    """
+    So, I should be able to pass all of the stuff I want displayed
+    here to the props variable, as json, right?
+    """
+    title = 'index'
     template = 'index.html'
-    component = 'index.js'
-
-    def get(self, request):
-        props = {
-            'stuff': [
-                {'username': 'alice'},
-                {'username': 'pat'},
-               ]
-           }
-
-        context = {
-            'title': self.title,
-            'component': self.component,
-            'props': props,
-        }
-
-        render(request, self.template, context)
-'''
-from django.views import View
-from django.shortcuts import render
-
-
-class Index(View):
-    title = 'Leaderboard'
-    template = 'index.html'
-    component = 'index.js'
+    component = 'bundle.js'
 
     def get(self, request):
         # gets passed to react via window.props

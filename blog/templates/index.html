@@ -5,7 +5,7 @@
 <head>
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
-  <title>title</title>
+  <title>{{title}}</title>
 </head>
 <body>
   <h1>So, this is django.</h1>
@@ -15,10 +15,11 @@
     <i class="pending">Loading components...</i><br><br> 
   </div>
   <h1>And this is also django.</h1>
+  {{component}}
 </body>
 <script>
-  window.props = {{props|json}}; // I removed the json filter, that would look like props|json // make sure to escape your props to prevent XSS! See here for the source for the json filter: https://gist.github.com/pirate/c18bfe4fd96008ffa0aef25001a2e88f
+  window.props = {{props|json}}; // make sure to escape your props to prevent XSS! See here for the source for the json filter: https://gist.github.com/pirate/c18bfe4fd96008ffa0aef25001a2e88f
   window.react_mount = document.getElementById('react');
 </script>
-<script src='{% static "bundle.js" %}'></script>
+<script src='/static/dist/{{component}}'></script>
 </html>
